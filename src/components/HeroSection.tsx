@@ -7,7 +7,7 @@ import { PiUser, PiCodesandboxLogo } from "react-icons/pi"
 export default function HeroSection() {
   return (
     <section className="py-[150px] relative">
-      <Image className="absolute left-0 top-0 opacity-30" src={OrangeImage} alt="Orange Image" />
+      <Image className="absolute left-0 top-0 opacity-30 pointer-events-none" src={OrangeImage} alt="Orange Image" />
       <div className="container mx-auto flex items-center justify-between">
         <div className="w-[586px]">
           <h2 className="text-3xl text-white">Merhaba,</h2>
@@ -30,7 +30,7 @@ export default function HeroSection() {
           <Image src={SalyImage} alt="Saly Image" width={623} height={445} />
         </div>
       </div>
-      <Image className="absolute right-0 bottom-0 opacity-30" src={PurpleImage} alt="Purple Image" />
+      <Image className="absolute right-0 bottom-0 opacity-30 pointer-events-none" src={PurpleImage} alt="Purple Image" />
     </section>
   )
 }

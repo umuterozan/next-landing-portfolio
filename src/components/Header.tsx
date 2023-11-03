@@ -1,6 +1,12 @@
+import { Toaster } from "react-hot-toast";
+
 export default function Header() {
   return (
     <header className="mt-[50px]">
+      <Toaster
+        position="top-right"
+        reverseOrder={false}
+      />
       <div className="container mx-auto flex items-center justify-between text-white">
         <span className="font-bold text-2xl">BYRKTR</span>
         <nav>

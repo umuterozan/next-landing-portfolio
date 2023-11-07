@@ -1,5 +1,5 @@
-import RedImage from "../../public/red.png"
-import GreenImage from "../../public/green.png"
+import RedImage from "../../../public/red.png"
+import GreenImage from "../../../public/green.png"
 import Image from "next/image"
 
 export default function SkillsSection() {

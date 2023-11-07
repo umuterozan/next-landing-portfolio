@@ -1,5 +1,5 @@
 import { PiBehanceLogo, PiFigmaLogo, PiInstagramLogo, PiGithubLogo, PiDribbbleLogo, PiTwitterLogo } from "react-icons/pi"
-import MeImage from "../../public/me.png"
+import MeImage from "../../../public/me.png"
 import Image from "next/image"
 
 export default function AboutSection() {

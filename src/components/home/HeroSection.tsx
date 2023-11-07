@@ -1,7 +1,7 @@
 import Image from "next/image"
-import SalyImage from "../../public/saly.png"
-import OrangeImage from "../../public/orange.png"
-import PurpleImage from "../../public/purple.png"
+import SalyImage from "../../../public/saly.png"
+import OrangeImage from "../../../public/orange.png"
+import PurpleImage from "../../../public/purple.png"
 import { PiUser, PiCodesandboxLogo } from "react-icons/pi"
 
 export default function HeroSection() {

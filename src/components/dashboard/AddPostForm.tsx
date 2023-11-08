@@ -8,6 +8,8 @@ import toast from "react-hot-toast"
 import { AiOutlineLoading3Quarters } from "react-icons/ai"
 import { Formik, FormikHelpers } from "formik"
 import * as Yup from "yup"
+import { generateSlug } from "@/lib/helpers"
+import { formatDate } from "@/lib/helpers"
 
 interface IValues {
   category: string;
@@ -61,13 +63,15 @@ export default function AddPostForm() {
         const imageUpload: any = values.image
         const image: any = v4() + imageUpload.name
         const imageRef = ref(storage, `images/${image}`)
+        const slug = v4() + generateSlug(values.title)
 
         await toast.promise(Promise.all([uploadBytes(imageRef, imageUpload), addDoc(collection(db, 'posts'), {
           category: values.category,
           title: values.title,
           content: values.content,
+          slug,
           image,
-          createdAt: new Date(),
+          createdAt: formatDate(new Date()),
         })]), {
           loading: 'Yazı yükleniyor...',
           success: 'Başarıyla yüklendi!',

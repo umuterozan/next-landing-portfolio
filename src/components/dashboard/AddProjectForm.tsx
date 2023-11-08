@@ -8,10 +8,12 @@ import toast from "react-hot-toast"
 import { AiOutlineLoading3Quarters } from "react-icons/ai"
 import { Formik, FormikHelpers } from "formik"
 import * as Yup from "yup"
+import { formatDate } from "@/lib/helpers"
 
 interface IValues {
   category: string;
   title: string;
+  url: string;
   image: any;
 }
 
@@ -30,6 +32,7 @@ export default function AddProjectForm() {
       initialValues={{
         category: '',
         title: '',
+        url: '',
         image: '',
       }}
       validationSchema={Yup.object().shape({
@@ -38,9 +41,13 @@ export default function AddProjectForm() {
           .max(50, 'Kategori ismi çok uzun, maksimum 50 karakter olabilir.')
           .required('Kategori alanının doldurulması zorunludur.'),
         title: Yup.string()
-        .min(2, 'Başlık çok kısa, minimum 2 karakter olabilir.')
-        .max(50, 'Başlık çok uzun, maksimum 50 karakter olabilir.')
-        .required('Başlık alanının doldurulması zorunludur.'),
+          .min(2, 'Başlık çok kısa, minimum 2 karakter olabilir.')
+          .max(50, 'Başlık çok uzun, maksimum 50 karakter olabilir.')
+          .required('Başlık alanının doldurulması zorunludur.'),
+        url: Yup.string()
+          .min(2, 'Bağlantı adresi çok kısa, minimum 2 karakter olabilir.')
+          .max(500, 'Bağlantı adresi çok uzun, maksimum 500 karakter olabilir.')
+          .required('Bağlantı adresi alanının doldurulması zorunludur.'),
         image: Yup.mixed()
           .required('Görsel alanının doldurulması zorunludur.')
           .test("is-valid-type", "Geçersiz dosya türü, sadece .jpg, .png .jpeg, .webp desteklenir.",
@@ -59,8 +66,9 @@ export default function AddProjectForm() {
         await toast.promise(Promise.all([uploadBytes(imageRef, imageUpload), addDoc(collection(db, 'projects'), {
           category: values.category,
           title: values.title,
+          url: values.url,
           image,
-          createdAt: new Date(),
+          createdAt: formatDate(new Date()),
         })]), {
           loading: 'Proje yükleniyor...',
           success: 'Başarıyla yüklendi!',
@@ -93,6 +101,11 @@ export default function AddProjectForm() {
             <label htmlFor="title" className="text-sm font-medium text-white">Başlık</label>
             <input onChange={handleChange} onBlur={handleBlur} value={values.title} className={`${errors.title && touched.title ? "border-[#C05353]" : "border-global-section-bg hover:border-primary-500 focus:border-primary-500"} mt-1 block w-full py-[15px] px-3 bg-global-section-bg text-white text-sm placeholder:text-sm placeholder:text-global-text border focus:border-2 rounded-lg outline-none`} type="text" placeholder="VPN App Design" name="title" id="title" />
             {errors.title && touched.title && <small className="text-[#C05353] font-medium text-sm block mt-1">{errors.title}</small>}
+          </div>
+          <div>
+            <label htmlFor="url" className="text-sm font-medium text-white">Bağlantı Adresi</label>
+            <input onChange={handleChange} onBlur={handleBlur} value={values.url} className={`${errors.url && touched.url ? "border-[#C05353]" : "border-global-section-bg hover:border-primary-500 focus:border-primary-500"} mt-1 block w-full py-[15px] px-3 bg-global-section-bg text-white text-sm placeholder:text-sm placeholder:text-global-text border focus:border-2 rounded-lg outline-none`} type="text" placeholder="https://resimadresi.com" name="url" id="url" />
+            {errors.url && touched.url && <small className="text-[#C05353] font-medium text-sm block mt-1">{errors.url}</small>}
           </div>
           <div>
             <label htmlFor="image" className="text-sm font-medium text-white">Görsel</label>

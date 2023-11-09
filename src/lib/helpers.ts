@@ -15,14 +15,10 @@ export function generateSlug(title: string) {
   return slug;
 }
 
-const months = [
-  'Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran', 'Temmuz', 'Ağustost', 'Eylül', 'Ekim', 'Kasım', 'Aralık'
-];
-
-export function formatDate(date: any) {
-  const day = date.getDate();
-  const month = months[date.getMonth()];
-  const year = date.getFullYear();
-
-  return `${day} ${month} ${year}`;
+export function formatDate(timestamp: any) {
+  return new Date(timestamp).toLocaleDateString('tr-TR', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+  })
 }

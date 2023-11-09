@@ -2,6 +2,7 @@ import { BsCalendar2Date } from "react-icons/bs"
 import { collection, getDocs } from "firebase/firestore"
 import { db } from "@/app/firebase"
 import Link from "next/link"
+import { formatDate } from "@/lib/helpers"
 
 async function getPosts() {
   const querySnapshot = await getDocs(collection(db, 'posts'))
@@ -36,7 +37,7 @@ export default async function PostsPage() {
             </p>
             <div className="mt-[10px] flex items-center gap-x-2">
               <BsCalendar2Date className="text-global-text w-5 h-5" />
-              <span className="text-xs text-global-text">{post.createdAt}</span>
+              <span className="text-xs text-global-text">{formatDate(post.createdAt.toMillis())}</span>
             </div>
           </div>
         </div>

@@ -9,7 +9,7 @@ import { AiOutlineLoading3Quarters } from "react-icons/ai"
 import { Formik, FormikHelpers } from "formik"
 import * as Yup from "yup"
 import { generateSlug } from "@/lib/helpers"
-import { formatDate } from "@/lib/helpers"
+import { serverTimestamp } from "firebase/firestore"
 
 interface IValues {
   category: string;
@@ -71,7 +71,7 @@ export default function AddPostForm() {
           content: values.content,
           slug,
           image,
-          createdAt: formatDate(new Date()),
+          createdAt: serverTimestamp(),
         })]), {
           loading: 'Yazı yükleniyor...',
           success: 'Başarıyla yüklendi!',

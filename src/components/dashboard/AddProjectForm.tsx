@@ -8,7 +8,7 @@ import toast from "react-hot-toast"
 import { AiOutlineLoading3Quarters } from "react-icons/ai"
 import { Formik, FormikHelpers } from "formik"
 import * as Yup from "yup"
-import { formatDate } from "@/lib/helpers"
+import { serverTimestamp } from "firebase/firestore"
 
 interface IValues {
   category: string;
@@ -68,7 +68,7 @@ export default function AddProjectForm() {
           title: values.title,
           url: values.url,
           image,
-          createdAt: formatDate(new Date()),
+          createdAt: serverTimestamp(),
         })]), {
           loading: 'Proje yükleniyor...',
           success: 'Başarıyla yüklendi!',

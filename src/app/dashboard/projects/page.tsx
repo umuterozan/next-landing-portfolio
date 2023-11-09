@@ -2,6 +2,7 @@ import { BiSearch } from "react-icons/bi"
 import { collection, getDocs } from "firebase/firestore"
 import { db } from "@/app/firebase"
 import Link from "next/link"
+import { formatDate } from "@/lib/helpers"
 
 async function getProjects() {
   const querySnapshot = await getDocs(collection(db, 'projects'))
@@ -28,7 +29,7 @@ export default async function ProjectsPage() {
             <div className="flex flex-col w-full h-full justify-center items-center gap-y-[15px]">
               <h2 className="text-sm font-medium text-[#AAB5C2]">{project.category}</h2>
               <h1 className="text-3xl font-semibold text-white">{project.title}</h1>
-              <h3 className="text-sm text-white">{project.createdAt}</h3>
+              <h3 className="text-sm text-white">{formatDate(project.createdAt.toMillis())}</h3>
             </div>
             <button className="flex items-center gap-x-2 mx-auto">
               <BiSearch className="w-5 h-5 text-primary-200" />

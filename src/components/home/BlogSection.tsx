@@ -31,7 +31,7 @@ export default async function BlogSection() {
           {posts.map((post) => (
             <div key={post.id} className="w-[326px]">
               <Link href={`/posts/${post.slug}`}>
-                <div className="bg-[url('/blogbg.jpg')] bg-cover bg-no-repeat rounded-[12px] h-[220px] px-[10px] py-[15px]">
+                <div className="bg-cover bg-no-repeat rounded-[12px] h-[220px] px-[10px] py-[15px]" style={{ backgroundImage: `url('https://firebasestorage.googleapis.com/v0/b/next-landing-portfolio.appspot.com/o/images%2F${post.image}?alt=media&token=c1c79610-6ee9-4320-89fe-4550ccf3bc24')` }}>
                   <div className="text-primary-500 text-xs font-medium bg-primary-100 rounded-md py-1 px-4 inline-block">{post.category}</div>
                 </div>
               </Link>

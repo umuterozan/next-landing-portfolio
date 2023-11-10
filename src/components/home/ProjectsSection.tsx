@@ -29,7 +29,7 @@ export default async function ProjectsSection() {
         <h1 className="mt-2 text-5xl font-semibold text-white">Yaptığım Projeler ve İşler</h1>
         <div className="mt-[50px] grid grid-cols-3 gap-x-[25px] gap-y-[22px]">
           {projects.map((project) => (
-            <div key={project.id} className="bg-[url('/projectbox.png')] bg-cover bg-no-repeat max-w-[450px] h-[400px] rounded-[25px] group">
+            <div key={project.id} className="bg-cover bg-no-repeat max-w-[450px] h-[400px] rounded-[25px] group" style={{ backgroundImage: `url('https://firebasestorage.googleapis.com/v0/b/next-landing-portfolio.appspot.com/o/images%2F${project.image}?alt=media&token=c1c79610-6ee9-4320-89fe-4550ccf3bc24')` }}>
               <div className="w-full h-0 group-hover:h-full transition-all duration-300 p-0 group-hover:px-[30px] group-hover:py-[50px] overflow-hidden rounded-[25px] bg-black bg-opacity-80">
                 <div className="flex flex-col w-full h-full justify-center items-center gap-y-[15px]">
                   <h2 className="text-sm font-medium text-[#AAB5C2]">{project.category}</h2>

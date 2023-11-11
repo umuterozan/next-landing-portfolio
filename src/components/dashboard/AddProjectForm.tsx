@@ -9,6 +9,7 @@ import { AiOutlineLoading3Quarters } from "react-icons/ai"
 import { Formik, FormikHelpers } from "formik"
 import * as Yup from "yup"
 import { serverTimestamp } from "firebase/firestore"
+import { useRouter } from "next/navigation"
 
 interface IValues {
   category: string;
@@ -26,6 +27,7 @@ function isValidFileType(fileName: string, fileType: string): any {
 }
 
 export default function AddProjectForm() {
+  const router = useRouter()
 
   return (
     <Formik
@@ -79,6 +81,8 @@ export default function AddProjectForm() {
         resetForm();
         // @ts-ignore
         document.getElementById('image').value = '';
+
+        router.refresh()
       }}
     >
       {({

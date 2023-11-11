@@ -10,6 +10,7 @@ import { Formik, FormikHelpers } from "formik"
 import * as Yup from "yup"
 import { generateSlug } from "@/lib/helpers"
 import { serverTimestamp } from "firebase/firestore"
+import { useRouter } from "next/navigation"
 
 interface IValues {
   category: string;
@@ -27,6 +28,7 @@ function isValidFileType(fileName: string, fileType: string): any {
 }
 
 export default function AddPostForm() {
+  const router = useRouter()
 
   return (
     <Formik
@@ -82,6 +84,8 @@ export default function AddPostForm() {
         resetForm();
         // @ts-ignore
         document.getElementById('image').value = '';
+
+        router.refresh()
       }}
     >
       {({

@@ -5,6 +5,7 @@ import { db, storage } from "@/app/firebase"
 import { useState } from "react"
 import { AiOutlineLoading3Quarters } from "react-icons/ai"
 import toast from "react-hot-toast"
+import { useRouter } from "next/navigation"
 
 type Props = {
   collection: string;
@@ -14,6 +15,7 @@ type Props = {
 
 export default function DeleteBtn({ collection, docId, image }: Props) {
   const [isDeleting, setDeleting] = useState(false)
+  const router = useRouter()
 
   async function clickHandle() {
     const imageRef = ref(storage, `images/${image}`)
@@ -25,6 +27,8 @@ export default function DeleteBtn({ collection, docId, image }: Props) {
       error: 'Silme başarısız!',
     })
     setDeleting(false)
+
+    router.refresh()
   }
 
   return (

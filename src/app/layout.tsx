@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/common/Header'
 import Footer from '@/components/common/Footer'
+import { AuthProvider } from '@/context/AuthContext'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,11 +20,13 @@ export default function RootLayout({
   return (
     <html lang="tr">
       <body className={`${inter.className} bg-global-bg`}>
-        <Header />
-        <main>
-          {children}
-        </main>
-        <Footer />
+        <AuthProvider>
+          <Header />
+          <main>
+            {children}
+          </main>
+          <Footer />
+        </AuthProvider>
       </body>
     </html>
   )

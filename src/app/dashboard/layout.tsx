@@ -21,22 +21,26 @@ export default function DashboardLayout({
 
   useEffect(() => {
     const checkAuthentication = async () => {
-      await new Promise((resolve) => setTimeout(resolve, 50))
+      await new Promise((resolve) => setTimeout(resolve, 250))
       setLoading(false)
     }
 
     checkAuthentication()
   }, [user])
 
+  if (loading) {
+    return (
+      <div className="h-screen flex items-center justify-center">
+        <AiOutlineLoading3Quarters className="animate-spin w-10 h-10 text-white" />
+      </div>
+    )
+  }
+
   return (
     <section className="py-[150px]">
       <div className="container mx-auto">
         <div className="flex items-center gap-x-4 border-b-2 border-primary-600 pb-2">
-          {loading ? (
-            <button className="font-semibold text-white py-3 px-5 bg-primary-600 border border-primary-600 rounded-lg w-full flex justify-center items-center">
-              <AiOutlineLoading3Quarters className="animate-spin mx-auto w-5 h-5" />
-            </button>
-          ) : user ? (
+          {user ? (
             <>
               <Link href="/dashboard" className="font-semibold text-white py-3 px-5 bg-primary-600 border border-primary-600 rounded-lg w-full flex justify-center items-center">
                 Dashboard
@@ -63,7 +67,20 @@ export default function DashboardLayout({
             </button>
           )}
         </div>
-        {children}
+        {user ? (
+          <>
+            <h1 className="mt-2 text-white text-center text-sm">{user.email} - Son Giriş Tarihi: {new Date(user.metadata.lastSignInTime).toLocaleDateString('tr-TR', {
+              month: 'long',
+              day: 'numeric',
+              year: 'numeric',
+              hour: 'numeric',
+              minute: 'numeric',
+            })}</h1>
+            {children}
+          </>
+        ) : (
+          <h1 className="mt-2 text-white text-center">Sayfayı görüntülemek için giriş yapın.</h1>
+        )}
       </div>
     </section>
   );

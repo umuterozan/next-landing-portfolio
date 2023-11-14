@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useAuth } from '@/context/AuthContext'
 import { useState, useEffect } from "react"
-import { AiOutlineLoading3Quarters } from "react-icons/ai"
+import LoadingSpin from "@/components/common/LoadingSpin";
 
 export default function DashboardLayout({
   children,
@@ -31,7 +31,7 @@ export default function DashboardLayout({
   if (loading) {
     return (
       <div className="h-screen flex items-center justify-center">
-        <AiOutlineLoading3Quarters className="animate-spin w-10 h-10 text-white" />
+        <LoadingSpin className="w-10 h-10 text-white" />
       </div>
     )
   }

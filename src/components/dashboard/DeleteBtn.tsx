@@ -3,9 +3,9 @@ import { doc, deleteDoc } from "firebase/firestore"
 import { ref, deleteObject } from "firebase/storage"
 import { db, storage } from "@/app/firebase"
 import { useState } from "react"
-import { AiOutlineLoading3Quarters } from "react-icons/ai"
 import toast from "react-hot-toast"
 import { useRouter } from "next/navigation"
+import LoadingSpin from "../common/LoadingSpin"
 
 type Props = {
   collection: string;
@@ -32,6 +32,6 @@ export default function DeleteBtn({ collection, docId, image }: Props) {
   }
 
   return (
-    <button disabled={isDeleting} onClick={clickHandle} className="font-semibold text-white text-sm py-3 px-5 bg-red-600 disabled:bg-transparent border border-red-600 disabled:border-primary-50 rounded-lg w-full">{isDeleting ? <AiOutlineLoading3Quarters className="animate-spin mx-auto w-5 h-5" /> : 'Sil'}</button>
+    <button disabled={isDeleting} onClick={clickHandle} className="font-semibold text-white text-sm py-3 px-5 bg-red-600 disabled:bg-transparent border border-red-600 disabled:border-primary-50 rounded-lg w-full">{isDeleting ? <LoadingSpin className="mx-auto w-5 h-5" /> : 'Sil'}</button>
   )
 }

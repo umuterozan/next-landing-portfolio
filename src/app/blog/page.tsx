@@ -1,12 +1,11 @@
 import { BsCalendar2Date } from "react-icons/bs"
-import { GoArrowUpRight } from "react-icons/go"
-import { collection, getDocs, query, limit, orderBy } from "firebase/firestore"
+import { collection, getDocs, query, orderBy } from "firebase/firestore"
 import { db } from "@/app/firebase"
 import Link from "next/link"
 import { formatDate } from "@/lib/helpers"
 
 async function getPosts() {
-  const querySnapshot = await getDocs(query(collection(db, 'posts'), orderBy('createdAt', 'desc'), limit(4)))
+  const querySnapshot = await getDocs(query(collection(db, 'posts'), orderBy('createdAt', 'desc')))
 
   const posts: any[] = []
 
@@ -19,17 +18,17 @@ async function getPosts() {
   return posts
 }
 
-export default async function BlogSection() {
+export default async function BlogPage() {
   const posts = await getPosts()
 
   return (
-    <section className="py-[150px]">
+    <section className="py-[50px]">
       <div className="container mx-auto">
         <h3 className="text-2xl text-primary-600">Blog</h3>
         <h1 className="mt-2 text-5xl font-semibold text-white">Yazılarım</h1>
-        <div className="mt-[50px] flex justify-between gap-x-8">
+        <div className="mt-[50px] flex flex-wrap justify-between gap-8">
           {posts.map((post) => (
-            <div key={post.id} className="w-[326px]">
+            <div key={post.id} className="w-[426px]">
               <Link href={`/blog/${post.slug}`}>
                 <div className="bg-cover bg-no-repeat rounded-[12px] h-[220px] px-[10px] py-[15px]" style={{ backgroundImage: `url('https://firebasestorage.googleapis.com/v0/b/next-landing-portfolio.appspot.com/o/images%2F${post.image}?alt=media&token=c1c79610-6ee9-4320-89fe-4550ccf3bc24')` }}>
                   <div className="text-primary-500 text-xs font-medium bg-primary-100 rounded-md py-1 px-4 inline-block">{post.category}</div>
@@ -48,10 +47,6 @@ export default async function BlogSection() {
             </div>
           ))}
         </div>
-        <button className="mt-[50px] mx-auto px-5 py-3 flex items-center gap-x-2 bg-[#182E53] rounded-lg">
-          <span className="font-semibold text-primary-600">Tüm Yazılarım</span>
-          <GoArrowUpRight className="w-5 h-5 text-primary-600" />
-        </button>
       </div>
     </section>
   )

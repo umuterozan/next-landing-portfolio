@@ -5,12 +5,12 @@ import { ref, uploadBytes } from "firebase/storage"
 import { db, storage } from "@/app/firebase"
 import { v4 } from "uuid"
 import toast from "react-hot-toast"
-import { AiOutlineLoading3Quarters } from "react-icons/ai"
 import { Formik, FormikHelpers } from "formik"
 import * as Yup from "yup"
 import { generateSlug } from "@/lib/helpers"
 import { serverTimestamp } from "firebase/firestore"
 import { useRouter } from "next/navigation"
+import LoadingSpin from "../common/LoadingSpin"
 
 interface IValues {
   category: string;
@@ -119,7 +119,7 @@ export default function AddPostForm() {
             <input onChange={(e: any) => setFieldValue('image', e.target.files[0])} onBlur={handleBlur} className={`${errors.image && touched.image ? "border-[#C05353]" : "border-global-section-bg hover:border-primary-500 focus:border-primary-500"} mt-1 block w-full py-[15px] px-3 bg-global-section-bg text-white text-sm placeholder:text-sm placeholder:text-global-text border focus:border-2 rounded-lg outline-none`} type="file" name="image" id="image" accept=".jpg, .png, .jpeg, .webp" />
             {errors.image && touched.image && <small className="text-[#C05353] font-medium text-sm block mt-1">{errors.image}</small>}
           </div>
-          <button disabled={isSubmitting} type="submit" className="font-semibold text-white py-3 px-5 bg-primary-600 disabled:bg-primary-50 border border-primary-600 rounded-lg">{isSubmitting ? <AiOutlineLoading3Quarters className="animate-spin mx-auto w-5 h-5" /> : 'Yazıyı Ekle'}</button>
+          <button disabled={isSubmitting} type="submit" className="font-semibold text-white py-3 px-5 bg-primary-600 disabled:bg-primary-50 border border-primary-600 rounded-lg">{isSubmitting ? <LoadingSpin className="mx-auto w-5 h-5" /> : 'Yazıyı Ekle'}</button>
         </form>
       )}
     </Formik>

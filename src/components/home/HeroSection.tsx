@@ -3,6 +3,7 @@ import SalyImage from "../../../public/saly.png"
 import OrangeImage from "../../../public/orange.png"
 import PurpleImage from "../../../public/purple.png"
 import { PiUser, PiCodesandboxLogo } from "react-icons/pi"
+import Link from "next/link"
 
 export default function HeroSection() {
   return (
@@ -16,14 +17,14 @@ export default function HeroSection() {
             Lorem ipsum dolor sit amet consectetur. Felis elit turpis imperdiet auctor a. Scelerisque tristique nulla morbi duis tempor nec lectus vitae dictumst. Enim at in.
           </p>
           <div className="mt-[30px] font-semibold flex items-center gap-x-7">
-            <button className="flex items-center gap-x-2 py-3 px-5 bg-primary-600 text-white border border-primary-600 rounded-lg">
+            <Link href="/#about" className="flex items-center gap-x-2 py-3 px-5 bg-primary-600 text-white border border-primary-600 rounded-lg hover:bg-primary-50 transition-all">
               <PiUser className="text-white w-5 h-5" />
               <span>Hakkımda</span>
-            </button>
-            <button className="flex items-center gap-x-2 py-3 px-5 text-primary-600 border border-primary-600 rounded-lg">
+            </Link>
+            <Link href="/projects" className="flex items-center gap-x-2 py-3 px-5 text-primary-600 border border-primary-600 rounded-lg hover:bg-primary-50 transition-all">
               <PiCodesandboxLogo className="text-primary-600 w-5 h-5" />
               <span>Çalışmalarım</span>
-            </button>
+            </Link>
           </div>
         </div>
         <div>

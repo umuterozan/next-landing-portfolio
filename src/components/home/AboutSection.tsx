@@ -1,10 +1,11 @@
 import { PiBehanceLogo, PiFigmaLogo, PiInstagramLogo, PiGithubLogo, PiDribbbleLogo, PiTwitterLogo } from "react-icons/pi"
 import MeImage from "../../../public/me.png"
 import Image from "next/image"
+import Link from "next/link"
 
 export default function AboutSection() {
   return (
-    <section className="bg-global-section-bg py-[50px]">
+    <section id="about" className="bg-global-section-bg py-[50px]">
       <div className="container mx-auto flex gap-x-[90px]">
         <div className="w-[586px]">
           <div>
@@ -14,12 +15,12 @@ export default function AboutSection() {
               Lorem ipsum dolor sit amet consectetur. Felis elit turpis imperdiet auctor a. Scelerisque tristique nulla morbi duis tempor nec lectus vitae dictumst. Enim at in. Lorem ipsum dolor sit amet consectetur. Felis elit turpis imperdiet auctor a. Scelerisque tristique nulla morbi duis tempor nec lectus vitae dictumst. Enim at in. Lorem ipsum dolor sit amet consectetur. Felis elit turpis imperdiet auctor a. Scelerisque tristique nulla morbi duis tempor nec lectus vitae dictumst. Enim at in. Lorem ipsum dolor sit amet consectetur. Felis elit turpis imperdiet auctor a
             </p>
             <div className="mt-[30px] flex items-center gap-x-[15px]">
-              <button className="p-2 border border-[#005CFF] bg-[#005CFF] rounded-[35px] text-white"><PiBehanceLogo className="w-7 h-7" /></button>
-              <button className="p-2 border border-[#A259FF] bg-[#A259FF] rounded-[35px] text-white"><PiFigmaLogo className="w-7 h-7" /></button>
-              <button className="p-2 border border-[#D62976] bg-[#D62976] rounded-[35px] text-white"><PiInstagramLogo className="w-7 h-7" /></button>
-              <button className="p-2 border border-[#2B3137] bg-[#2B3137] rounded-[35px] text-white"><PiGithubLogo className="w-7 h-7" /></button>
-              <button className="p-2 border border-[#EA4C89] bg-[#EA4C89] rounded-[35px] text-white"><PiDribbbleLogo className="w-7 h-7" /></button>
-              <button className="p-2 border border-[#1DA1F2] bg-[#1DA1F2] rounded-[35px] text-white"><PiTwitterLogo className="w-7 h-7" /></button>
+              <Link href="#" className="p-2 border border-[#005CFF] bg-[#005CFF] rounded-[35px] text-white"><PiBehanceLogo className="w-7 h-7" /></Link>
+              <Link href="#" className="p-2 border border-[#A259FF] bg-[#A259FF] rounded-[35px] text-white"><PiFigmaLogo className="w-7 h-7" /></Link>
+              <Link href="#" className="p-2 border border-[#D62976] bg-[#D62976] rounded-[35px] text-white"><PiInstagramLogo className="w-7 h-7" /></Link>
+              <Link href="#" className="p-2 border border-[#2B3137] bg-[#2B3137] rounded-[35px] text-white"><PiGithubLogo className="w-7 h-7" /></Link>
+              <Link href="#" className="p-2 border border-[#EA4C89] bg-[#EA4C89] rounded-[35px] text-white"><PiDribbbleLogo className="w-7 h-7" /></Link>
+              <Link href="#" className="p-2 border border-[#1DA1F2] bg-[#1DA1F2] rounded-[35px] text-white"><PiTwitterLogo className="w-7 h-7" /></Link>
             </div>
           </div>
           <div className="mt-[60px]">

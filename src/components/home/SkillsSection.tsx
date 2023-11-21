@@ -4,7 +4,7 @@ import Image from "next/image"
 
 export default function SkillsSection() {
   return (
-    <section className="py-[150px] relative">
+    <section id="skills" className="py-[150px] relative">
       <Image className="absolute right-0 top-0 opacity-30 pointer-events-none" src={RedImage} alt="Red Image" />
       <div className="container mx-auto">
         <h2 className="text-2xl text-primary-600">Yeteneklerim</h2>

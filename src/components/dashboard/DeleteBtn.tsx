@@ -32,6 +32,6 @@ export default function DeleteBtn({ collection, docId, image }: Props) {
   }
 
   return (
-    <button disabled={isDeleting} onClick={clickHandle} className="font-semibold text-white text-sm py-3 px-5 bg-red-600 disabled:bg-transparent border border-red-600 disabled:border-primary-50 rounded-lg w-full">{isDeleting ? <LoadingSpin className="mx-auto w-5 h-5" /> : 'Sil'}</button>
+    <button disabled={isDeleting} onClick={clickHandle} className="font-semibold text-white text-sm py-3 px-5 bg-red-600 hover:bg-red-950 disabled:bg-transparent border border-red-600 disabled:border-primary-50 transition-all rounded-lg w-full">{isDeleting ? <LoadingSpin className="mx-auto w-5 h-5" /> : 'Sil'}</button>
   )
 }

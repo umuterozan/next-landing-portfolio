@@ -44,7 +44,7 @@ export default async function ProjectsSection() {
             </div>
           ))}
         </div>
-        <button className="mt-[50px] mx-auto px-5 py-3 flex items-center gap-x-2 bg-[#182E53] rounded-lg">
+        <button className="mt-[50px] mx-auto px-5 py-3 flex items-center gap-x-2 bg-primary-50 hover:bg-transparent transition-all border-primary-50 border-2 rounded-lg">
           <span className="font-semibold text-primary-600">Daha Fazla Göster</span>
           <GoArrowUpRight className="w-5 h-5 text-primary-600" />
         </button>

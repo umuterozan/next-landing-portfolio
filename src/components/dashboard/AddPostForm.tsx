@@ -49,7 +49,7 @@ export default function AddPostForm() {
           .required('Başlık alanının doldurulması zorunludur.'),
         content: Yup.string()
           .min(2, 'İçerik çok kısa, minimum 2 karakter olabilir.')
-          .max(1500, 'İçerik çok uzun, maksimum 1500 karakter olabilir.')
+          .max(10000, 'İçerik çok uzun, maksimum 10000 karakter olabilir.')
           .required('İçerik alanının doldurulması zorunludur.'),
         image: Yup.mixed()
           .required('Görsel alanının doldurulması zorunludur.')
@@ -111,7 +111,7 @@ export default function AddPostForm() {
           </div>
           <div>
             <label htmlFor="content" className="text-sm font-medium text-white">İçerik</label>
-            <textarea onChange={handleChange} onBlur={handleBlur} value={values.content} className={`${errors.content && touched.content ? "border-[#C05353]" : "border-global-section-bg hover:border-primary-500 focus:border-primary-500"} h-40 mt-1 block w-full py-[10px] px-3 bg-global-section-bg text-white text-sm placeholder:text-sm placeholder:text-global-text border focus:border-2 rounded-lg outline-none`} placeholder="En fazla 1500 karakter..." name="content" id="content" />
+            <textarea onChange={handleChange} onBlur={handleBlur} value={values.content} className={`${errors.content && touched.content ? "border-[#C05353]" : "border-global-section-bg hover:border-primary-500 focus:border-primary-500"} h-40 mt-1 block w-full py-[10px] px-3 bg-global-section-bg text-white text-sm placeholder:text-sm placeholder:text-global-text border focus:border-2 rounded-lg outline-none`} placeholder="En fazla 10000 karakter..." name="content" id="content" />
             {errors.content && touched.content && <small className="text-[#C05353] font-medium text-sm block mt-1">{errors.content}</small>}
           </div>
           <div>

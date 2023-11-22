@@ -50,7 +50,7 @@ export default function ContactForm() {
           .required('Konu alanının doldurulması zorunludur.'),
         message: Yup.string()
           .min(2, 'Mesaj çok kısa.')
-          .max(500, 'Mesaj çok uzun.')
+          .max(1500, 'Mesaj çok uzun.')
           .required('Mesaj alanının doldurulması zorunludur.'),
       })}
       onSubmit={async (
@@ -122,7 +122,7 @@ export default function ContactForm() {
           <div className="mt-8">
             <div>
               <label htmlFor="message" className="text-sm font-medium text-white">Mesajınız</label>
-              <textarea onChange={handleChange} onBlur={handleBlur} value={values.message} className={`${errors.message && touched.message ? "border-[#C05353]" : "border-global-section-bg hover:border-primary-500 focus:border-primary-500"} h-40 mt-1 block w-full py-[10px] px-3 bg-global-section-bg text-white text-sm placeholder:text-sm placeholder:text-global-text border focus:border-2 rounded-lg outline-none`} placeholder="En fazla 500 karakter..." name="message" id="message" />
+              <textarea onChange={handleChange} onBlur={handleBlur} value={values.message} className={`${errors.message && touched.message ? "border-[#C05353]" : "border-global-section-bg hover:border-primary-500 focus:border-primary-500"} h-40 mt-1 block w-full py-[10px] px-3 bg-global-section-bg text-white text-sm placeholder:text-sm placeholder:text-global-text border focus:border-2 rounded-lg outline-none`} placeholder="En fazla 1500 karakter..." name="message" id="message" />
               {errors.message && touched.message && <small className="text-[#C05353] font-medium text-sm block mt-1 ml-1">{errors.message}</small>}
             </div>
 

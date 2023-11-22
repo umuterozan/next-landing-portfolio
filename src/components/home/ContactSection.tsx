@@ -1,5 +1,33 @@
 import { PiInstagramLogo, PiTwitterLogo, PiBehanceLogo, PiGithubLogo } from "react-icons/pi"
 import ContactForm from "./ContactForm"
+import Link from "next/link"
+
+const links = [
+  {
+    href: "#",
+    name: "Instagram",
+    username: "@muzaffer.byrktrr",
+    icon: <PiInstagramLogo className="w-9 h-9 text-primary-500" />,
+  },
+  {
+    href: "#",
+    name: "Twitter (X)",
+    username: "@twitter",
+    icon: <PiTwitterLogo className="w-9 h-9 text-primary-500" />,
+  },
+  {
+    href: "#",
+    name: "Behance",
+    username: "behance.net/byrktr",
+    icon: <PiBehanceLogo className="w-9 h-9 text-primary-500" />,
+  },
+  {
+    href: "#",
+    name: "Github",
+    username: "github.com/MuzafferBYRKTR",
+    icon: <PiGithubLogo className="w-9 h-9 text-primary-500" />,
+  },
+]
 
 export default function ContactSection() {
   return (
@@ -12,34 +40,17 @@ export default function ContactSection() {
             <ContactForm />
           </div>
           <div className="flex flex-col gap-y-[10px]">
-            <div className="flex items-center gap-x-[30px] bg-global-section-bg hover:bg-primary-50 transition-all py-5 px-[30px] rounded-[14px]">
-              <PiInstagramLogo className="w-9 h-9 text-primary-500" />
-              <div>
-                <h1 className="font-medium text-white">Instagram</h1>
-                <h2 className="mt-[5px] text-sm font-medium text-global-text">@muzaffer.byrktrr</h2>
-              </div>
-            </div>
-            <div className="flex items-center gap-x-[30px] bg-global-section-bg hover:bg-primary-50 transition-all py-5 px-[30px] rounded-[14px]">
-              <PiTwitterLogo className="w-9 h-9 text-primary-500" />
-              <div>
-                <h1 className="font-medium text-white">Twitter (X)</h1>
-                <h2 className="mt-[5px] text-sm font-medium text-global-text">@twitter</h2>
-              </div>
-            </div>
-            <div className="flex items-center gap-x-[30px] bg-global-section-bg hover:bg-primary-50 transition-all py-5 px-[30px] rounded-[14px]">
-              <PiBehanceLogo className="w-9 h-9 text-primary-500" />
-              <div>
-                <h1 className="font-medium text-white">Behance</h1>
-                <h2 className="mt-[5px] text-sm font-medium text-global-text">behance.net/byrktr</h2>
-              </div>
-            </div>
-            <div className="flex items-center gap-x-[30px] bg-global-section-bg hover:bg-primary-50 transition-all py-5 px-[30px] rounded-[14px]">
-              <PiGithubLogo className="w-9 h-9 text-primary-500" />
-              <div>
-                <h1 className="font-medium text-white">Github</h1>
-                <h2 className="mt-[5px] text-sm font-medium text-global-text">github.com/MuzafferBYRKTR</h2>
-              </div>
-            </div>
+            {links.map((link, index) => (
+              <Link key={index} href={link.href}>
+                <div className="flex items-center gap-x-[30px] bg-global-section-bg hover:bg-primary-50 transition-all py-5 px-[30px] rounded-[14px]">
+                  {link.icon}
+                  <div>
+                    <h1 className="font-medium text-white">{link.name}</h1>
+                    <h2 className="mt-[5px] text-sm font-medium text-global-text">{link.username}</h2>
+                  </div>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </div>

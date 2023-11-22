@@ -114,7 +114,7 @@ export default function ContactForm() {
               <label htmlFor="subject" className="text-sm font-medium text-white">Konu</label>
               <div className={`${errors.subject && touched.subject ? "border-[#C05353]" : "border-global-section-bg hover:border-primary-500 focus-within:border-primary-500"} mt-[6px] text-global-text flex items-center h-[42px] px-3 bg-global-section-bg border focus-within:border-2 rounded-lg`}>
                 <PiUserList className="w-[22px] h-[22px]" />
-                <input onChange={handleChange} onBlur={handleBlur} value={values.subject} className="text-sm placeholder:text-sm w-full h-full px-3 bg-transparent outline-none text-white" name="subject" id="subject" type="text" />
+                <input onChange={handleChange} onBlur={handleBlur} value={values.subject} className="text-sm placeholder:text-sm w-full h-full px-3 bg-transparent outline-none text-white" name="subject" id="subject" type="text" placeholder="Konu..." />
               </div>
               {errors.subject && touched.subject && <small className="text-[#C05353] font-medium text-sm block mt-1 ml-1">{errors.subject}</small>}
             </div>

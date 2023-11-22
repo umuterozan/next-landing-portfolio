@@ -2,6 +2,52 @@ import RedImage from "../../../public/red.png"
 import GreenImage from "../../../public/green.png"
 import Image from "next/image"
 
+const skills = {
+  description: "Lorem ipsum dolor sit amet consectetur. Felis elit turpis imperdiet auctor a. Scelerisque tristique nulla morbi duis tempor nec lectus vitae dictumst. Enim at in. Lorem ipsum dolor sit amet consectetur. Felis elit turpis imperdiet auctor a",
+  skills: [
+    {
+      title: "Web Tasarımı",
+      description: "2021 yılından bu yana Figma ile kullanıcı arayüzleri geliştiriyorum.",
+      sub: "HTML, CSS, PHP",
+    },
+    {
+      title: "Web Tasarımı",
+      description: "2021 yılından bu yana Figma ile kullanıcı arayüzleri geliştiriyorum.",
+      sub: "HTML, CSS, PHP",
+    },
+    {
+      title: "Web Tasarımı",
+      description: "2021 yılından bu yana Figma ile kullanıcı arayüzleri geliştiriyorum.",
+      sub: "HTML, CSS, PHP",
+    },
+    {
+      title: "Web Tasarımı",
+      description: "2021 yılından bu yana Figma ile kullanıcı arayüzleri geliştiriyorum.",
+      sub: "HTML, CSS, PHP",
+    },
+    {
+      title: "Web Tasarımı",
+      description: "2021 yılından bu yana Figma ile kullanıcı arayüzleri geliştiriyorum.",
+      sub: "HTML, CSS, PHP",
+    },
+    {
+      title: "Web Tasarımı",
+      description: "2021 yılından bu yana Figma ile kullanıcı arayüzleri geliştiriyorum.",
+      sub: "HTML, CSS, PHP",
+    },
+    {
+      title: "Web Tasarımı",
+      description: "2021 yılından bu yana Figma ile kullanıcı arayüzleri geliştiriyorum.",
+      sub: "HTML, CSS, PHP",
+    },
+    {
+      title: "Web Tasarımı",
+      description: "2021 yılından bu yana Figma ile kullanıcı arayüzleri geliştiriyorum.",
+      sub: "HTML, CSS, PHP",
+    },
+  ]
+}
+
 export default function SkillsSection() {
   return (
     <section id="skills" className="py-[150px] relative">
@@ -10,11 +56,11 @@ export default function SkillsSection() {
         <h2 className="text-2xl text-primary-600">Yeteneklerim</h2>
         <h1 className="mt-2 text-5xl font-semibold text-white">Neler Yapıyorum?</h1>
         <p className="mt-2 text-global-text leading-6 w-[683px]">
-          Lorem ipsum dolor sit amet consectetur. Felis elit turpis imperdiet auctor a. Scelerisque tristique nulla morbi duis tempor nec lectus vitae dictumst. Enim at in. Lorem ipsum dolor sit amet consectetur. Felis elit turpis imperdiet auctor a
+          {skills.description}
         </p>
         <div className="mt-[50px] grid grid-cols-4 gap-x-8 gap-y-[50px]">
-          {[...Array(8).keys()].map((item) => (
-            <div className="bg-global-section-bg border-2 border-global-section-bg rounded-[25px] w-[326px] p-[30px]">
+          {skills.skills.map((skill, index) => (
+            <div key={index} className="bg-global-section-bg border-2 border-global-section-bg rounded-[25px] w-[326px] p-[30px]">
               <div className="bg-primary-50 rounded-[10px] p-[10px] flex justify-center items-center w-[66px] h-[66px]">
                 <svg width="32" height="46" viewBox="0 0 32 46" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <g id="Group">
@@ -26,9 +72,9 @@ export default function SkillsSection() {
                   </g>
                 </svg>
               </div>
-              <h2 className="mt-[15px] text-xl font-semibold text-white">Web Tasarımı</h2>
-              <p className="mt-3 text-sm text-global-text">2021 yılından bu yana Figma ile kullanıcı arayüzleri geliştiriyorum.</p>
-              <span className="mt-[15px] inline-block text-sm font-medium text-white">HTML, CSS, PHP</span>
+              <h2 className="mt-[15px] text-xl font-semibold text-white">{skill.title}</h2>
+              <p className="mt-3 text-sm text-global-text">{skill.description}</p>
+              <span className="mt-[15px] inline-block text-sm font-medium text-white">{skill.sub}</span>
             </div>
           ))}
         </div>

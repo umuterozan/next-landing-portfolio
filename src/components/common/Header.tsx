@@ -4,6 +4,8 @@ import { Toaster } from "react-hot-toast";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+const title = "BYRKTR"
+
 export default function Header() {
   const pathname = usePathname()
 
@@ -14,7 +16,7 @@ export default function Header() {
         reverseOrder={false}
       />
       <div className="container mx-auto flex items-center justify-between text-white">
-        <Link href="/" className="hover:text-primary-500 transition-all"><span className="font-bold text-2xl">BYRKTR</span></Link>
+        <Link href="/" className="hover:text-primary-500 transition-all"><span className="font-bold text-2xl">{title}</span></Link>
         <nav>
           <ul className="font-medium text-xl flex items-center gap-x-10">
             <Link href="/#about" className="hover:text-primary-500 transition-all"><li>Hakkımda</li></Link>

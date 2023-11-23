@@ -1,5 +1,5 @@
 import { PiBehanceLogo, PiFigmaLogo, PiInstagramLogo, PiGithubLogo, PiDribbbleLogo, PiTwitterLogo } from "react-icons/pi"
-import MeImage from "../../../public/me.png"
+import MeImage from "../../../public/me.jpg"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -91,8 +91,8 @@ export default function AboutSection() {
             </div>
           </div>
         </div>
-        <div>
-          <Image src={MeImage} alt="Me Image" />
+        <div className="w-[680px] h-[750px] relative rounded-[40px]" style={{ background: "linear-gradient(to bottom, #2781E9, #2781E900)" }}>
+          <Image src={MeImage} fill className="object-cover p-2 rounded-[40px] pointer-events-none" alt="Me Image" />
         </div>
       </div>
     </section>

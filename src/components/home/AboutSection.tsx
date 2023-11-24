@@ -49,15 +49,15 @@ const about = {
 export default function AboutSection() {
   return (
     <section id="about" className="bg-global-section-bg py-[50px]">
-      <div className="container mx-auto flex gap-x-[90px]">
-        <div className="w-[586px]">
+      <div className="container mx-auto flex flex-col-reverse lg:flex-row gap-y-8 lg:gap-y-0 gap-x-[90px]">
+        <div className="lg:w-[586px]">
           <div>
             <h2 className="text-2xl text-primary-600">Hakkımda</h2>
             <h1 className="mt-2 text-4xl font-semibold text-white">Beni Tanıyın</h1>
             <p className="mt-2 text-global-text leading-6">
               {about.description}
             </p>
-            <div className="mt-[30px] flex items-center gap-x-[15px]">
+            <div className="mt-[30px] flex items-center flex-wrap gap-[15px]">
               {about.links.map((link, index) => (
                 <Link key={index} href={link.href} className="p-2 border rounded-[35px] text-white" style={{ borderColor: link.color, backgroundColor: link.color }}>{link.icon}</Link>
               ))}
@@ -65,7 +65,7 @@ export default function AboutSection() {
           </div>
           <div className="mt-[60px]">
             <h2 className="text-white text-2xl font-bold">Kişisel Bilgiler</h2>
-            <div className="mt-[30px] flex items-start gap-x-[15px]">
+            <div className="mt-[30px] flex flex-col 2xl:flex-row text-xs sm:text-base items-start gap-[15px]">
               <div className="flex items-center gap-x-[15px]">
                 <div className="font-medium text-global-text flex flex-col gap-y-[10px]">
                   <span>İsim Soyisim:</span>
@@ -91,7 +91,7 @@ export default function AboutSection() {
             </div>
           </div>
         </div>
-        <div className="w-[680px] h-[750px] relative rounded-[40px]" style={{ background: "linear-gradient(to bottom, #2781E9, #2781E900)" }}>
+        <div className="mx-auto w-[180px] h-[250px] sm:w-[480px] sm:h-[550px] lg:w-[680px] lg:h-[750px] relative rounded-[40px]" style={{ background: "linear-gradient(to bottom, #2781E9, #2781E900)" }}>
           <Image src={MeImage} fill className="object-cover p-2 rounded-[40px] pointer-events-none" alt="Me Image" />
         </div>
       </div>

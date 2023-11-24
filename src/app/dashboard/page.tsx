@@ -19,7 +19,7 @@ export default async function Dashboard() {
   const { projectsCount, postsCount } = await getCounts()
 
   return (
-    <div className="mt-[50px] grid grid-cols-3 gap-x-8 gap-y-[50px]">
+    <div className="mt-[50px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-[50px]">
       <DashboardCard icon={<IoIosApps className="text-3xl text-white" />} title={projectsCount} description="Yüklenmiş projelerin sayısı" />
       <DashboardCard icon={<BsFileText className="text-3xl text-white" />} title={postsCount} description="Yüklenmiş yazıların sayısı" />
       <DashboardCard icon={<FaPeopleGroup className="text-3xl text-white" />} title={254} description="Siteyi ziyaret edenlerin sayısı" />

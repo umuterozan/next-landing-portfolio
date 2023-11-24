@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useAuth } from '@/context/AuthContext'
 import { useState, useEffect } from "react"
 import LoadingSpin from "@/components/common/LoadingSpin";
+import { usePathname } from "next/navigation";
 
 export default function DashboardLayout({
   children,
@@ -12,6 +13,7 @@ export default function DashboardLayout({
 }) {
   const { user, signInAsAdmin, logOut }: any = useAuth()
   const [loading, setLoading] = useState(true)
+  const pathname = usePathname()
 
   const handleSignIn = async () => {
     const email = prompt("E-posta adresi:")
@@ -39,22 +41,22 @@ export default function DashboardLayout({
   return (
     <section className="py-[150px]">
       <div className="container mx-auto">
-        <div className="flex items-center gap-x-4 border-b-2 border-primary-600 pb-2">
+        <div className="flex flex-wrap xl:flex-nowrap items-center gap-4 border-b-2 border-primary-600 pb-2">
           {user ? (
             <>
-              <Link href="/dashboard" className="font-semibold text-white py-3 px-5 bg-primary-600 hover:bg-primary-50 transition-all border border-primary-600 rounded-lg w-full flex justify-center items-center">
+              <Link href="/dashboard" className={`font-semibold text-white py-3 px-5 hover:bg-primary-50 transition-all border border-primary-600 rounded-lg w-full flex justify-center items-center ${pathname === '/dashboard' ? 'bg-primary-50' : 'bg-primary-600'}`}>
                 Dashboard
               </Link>
-              <Link href="/dashboard/projects" className="font-semibold text-white py-3 px-5 bg-primary-600 hover:bg-primary-50 transition-all border border-primary-600 rounded-lg w-full flex justify-center items-center">
+              <Link href="/dashboard/projects" className={`font-semibold text-white py-3 px-5 hover:bg-primary-50 transition-all border border-primary-600 rounded-lg w-full flex justify-center items-center ${pathname === '/dashboard/projects' ? 'bg-primary-50' : 'bg-primary-600'}`}>
                 Projeleri Listele
               </Link>
-              <Link href="/dashboard/posts" className="font-semibold text-white py-3 px-5 bg-primary-600 hover:bg-primary-50 transition-all border border-primary-600 rounded-lg w-full flex justify-center items-center">
+              <Link href="/dashboard/posts" className={`font-semibold text-white py-3 px-5 hover:bg-primary-50 transition-all border border-primary-600 rounded-lg w-full flex justify-center items-center ${pathname === '/dashboard/posts' ? 'bg-primary-50' : 'bg-primary-600'}`}>
                 Yazıları Listele
               </Link>
-              <Link href="/dashboard/add-project" className="font-semibold text-white py-3 px-5 bg-primary-600 hover:bg-primary-50 transition-all border border-primary-600 rounded-lg w-full flex justify-center items-center">
+              <Link href="/dashboard/add-project" className={`font-semibold text-white py-3 px-5 hover:bg-primary-50 transition-all border border-primary-600 rounded-lg w-full flex justify-center items-center ${pathname === '/dashboard/add-project' ? 'bg-primary-50' : 'bg-primary-600'}`}>
                 Proje Ekle
               </Link>
-              <Link href="/dashboard/add-post" className="font-semibold text-white py-3 px-5 bg-primary-600 hover:bg-primary-50 transition-all border border-primary-600 rounded-lg w-full flex justify-center items-center">
+              <Link href="/dashboard/add-post" className={`font-semibold text-white py-3 px-5 hover:bg-primary-50 transition-all border border-primary-600 rounded-lg w-full flex justify-center items-center ${pathname === '/dashboard/add-post' ? 'bg-primary-50' : 'bg-primary-600'}`}>
                 Yazı Ekle
               </Link>
               <button onClick={logOut} className="font-semibold text-white py-3 px-5 bg-primary-600 hover:bg-primary-50 transition-all border border-primary-600 rounded-lg w-full flex justify-center items-center">

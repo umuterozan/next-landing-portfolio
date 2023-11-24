@@ -85,7 +85,7 @@ export default function ContactForm() {
         isSubmitting,
       }) => (
         <form onSubmit={handleSubmit}>
-          <div className="grid grid-cols-2 gap-x-5 gap-y-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-5 gap-y-8">
             <div>
               <label htmlFor="name" className="text-sm font-medium text-white">İsim Soyisim</label>
               <div className={`${errors.from_name && touched.from_name ? "border-[#C05353]" : "border-global-section-bg hover:border-primary-500 focus-within:border-primary-500"} mt-[6px] text-global-text flex items-center h-[42px] px-3 bg-global-section-bg border focus-within:border-2 rounded-lg`}>

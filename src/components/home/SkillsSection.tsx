@@ -63,13 +63,13 @@ export default function SkillsSection() {
       <Image className="absolute right-0 top-0 opacity-30 pointer-events-none" src={RedImage} alt="Red Image" />
       <div className="container mx-auto">
         <h2 className="text-2xl text-primary-600">Yeteneklerim</h2>
-        <h1 className="mt-2 text-5xl font-semibold text-white">Neler Yapıyorum?</h1>
-        <p className="mt-2 text-global-text leading-6 w-[683px]">
+        <h1 className="mt-2 text-4xl sm:text-5xl font-semibold text-white">Neler Yapıyorum?</h1>
+        <p className="mt-2 text-global-text leading-6 md:w-[683px]">
           {skills.description}
         </p>
-        <div className="mt-[50px] grid grid-cols-4 gap-x-8 gap-y-[50px]">
+        <div className="mt-[50px] grid place-items-center md:place-items-start grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-x-8 gap-y-[50px]">
           {skills.skills.map((skill, index) => (
-            <div key={index} className="bg-global-section-bg border-2 border-global-section-bg rounded-[25px] w-[326px] p-[30px]">
+            <div key={index} className="bg-global-section-bg border-2 border-global-section-bg rounded-[25px] xl:w-[326px] p-[30px]">
               <div className="bg-primary-50 rounded-[10px] p-[10px] flex justify-center items-center w-[66px] h-[66px]">
                 {skill.icon}
               </div>

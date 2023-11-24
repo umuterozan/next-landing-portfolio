@@ -35,7 +35,7 @@ export default function ContactSection() {
       <div className="container mx-auto">
         <h3 className="text-2xl text-primary-600">İletişim</h3>
         <h1 className="mt-2 text-5xl font-semibold text-white">Benimle İletişime Geçin</h1>
-        <div className="mt-[50px] grid grid-cols-2 gap-x-8">
+        <div className="mt-[50px] grid grid-cols-1 xl:grid-cols-2 gap-8">
           <div>
             <ContactForm />
           </div>
@@ -44,9 +44,9 @@ export default function ContactSection() {
               <Link key={index} href={link.href}>
                 <div className="flex items-center gap-x-[30px] bg-global-section-bg hover:bg-primary-50 transition-all py-5 px-[30px] rounded-[14px]">
                   {link.icon}
-                  <div>
+                  <div className="text-sm sm:text-base">
                     <h1 className="font-medium text-white">{link.name}</h1>
-                    <h2 className="mt-[5px] text-sm font-medium text-global-text">{link.username}</h2>
+                    <h2 className="mt-[5px] text-sm font-medium text-global-text break-all">{link.username}</h2>
                   </div>
                 </div>
               </Link>

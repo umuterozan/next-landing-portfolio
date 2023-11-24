@@ -23,9 +23,9 @@ const links = [
 export default function Footer() {
   return (
     <footer className="bg-global-section-bg py-[57px]">
-      <div className="container mx-auto flex items-center justify-between">
+      <div className="container mx-auto flex flex-wrap items-center justify-center gap-8 sm:gap-0 sm:justify-between">
         <h1 className="text-white font-medium">2023 © Tüm hakları saklıdır.</h1>
-        <div className="flex items-center gap-x-[30px] text-global-text">
+        <div className="flex flex-wrap justify-center items-center gap-[30px] text-global-text">
           {links.map((link, index) => (
             <Link key={index} href={link.href}>{link.icon}</Link>
           ))}

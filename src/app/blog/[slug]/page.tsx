@@ -27,7 +27,7 @@ export default async function Post({ params }: { params: { slug: string }}) {
     <section className="py-[50px]">
       <div className="container mx-auto flex flex-col items-center">
         <div>
-          <div className="bg-cover bg-no-repeat rounded-[12px] w-[652px] h-[434px] px-[10px] py-[15px]" style={{ backgroundImage: `url('https://firebasestorage.googleapis.com/v0/b/next-landing-portfolio.appspot.com/o/images%2F${post.image}?alt=media&token=c1c79610-6ee9-4320-89fe-4550ccf3bc24')` }}>
+          <div className="bg-cover bg-no-repeat rounded-[12px] w-[252px] h-[134px] sm:w-[452px] sm:h-[234px] md:w-[652px] md:h-[434px] px-[10px] py-[15px]" style={{ backgroundImage: `url('https://firebasestorage.googleapis.com/v0/b/next-landing-portfolio.appspot.com/o/images%2F${post.image}?alt=media&token=c1c79610-6ee9-4320-89fe-4550ccf3bc24')` }}>
             <div className="text-primary-500 text-xs font-medium bg-primary-100 rounded-md py-1 px-4 inline-block">{post.category}</div>
           </div>
           <div className="px-[10px] py-[30px]">
